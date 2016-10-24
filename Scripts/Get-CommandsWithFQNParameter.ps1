@@ -13,4 +13,6 @@
 Import-Module PowerShellGet
 
 $a = Get-Command -ParameterName FullyQualified*
-Get-Command -ParameterName FullyQualified* | ft Name, @{ L = 'Parameter'; E = { $_.ParameterSets.Parameters.Name | Where { $_ -like "Fully*" } | Sort -Unique } }
+Get-Command -ParameterName FullyQualified* | ft Name, @{
+	L = 'Parameter';
+	E = { $_.ParameterSets.Parameters.Name | Where { $_ -like "Fully*" } | Sort -Unique } }
